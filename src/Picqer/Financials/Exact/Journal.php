@@ -11,6 +11,7 @@
  * @property String $Description Description of BankAccount
  * @property Guid $ID Primary Key
  * @property String $Type Bank account number. Is mandatory for Journals that have Type = Bank
+ * @property $GLAccount Guid Suspense general ledger account
  */
 class Journal extends Model
 {
@@ -24,6 +25,7 @@ class Journal extends Model
         'Description',
         'ID',
         'Type',
+        'GLAccount',
     ];
 
     protected $url = 'financial/Journals';
