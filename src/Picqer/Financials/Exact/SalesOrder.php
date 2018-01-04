@@ -1,4 +1,6 @@
-<?php namespace Picqer\Financials\Exact;
+<?php
+
+namespace Picqer\Financials\Exact;
 
 /**
  * Class SalesOrder
@@ -6,69 +8,73 @@
  * @package Picqer\Financials\Exact
  * @see https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=SalesOrderSalesOrders
  *
- * @property $OrderID Guid Primary key
- * @property $AmountDC Double Amount in the default currency of the company
- * @property $AmountFC Double Amount in the currency of the transaction
- * @property $ApprovalStatus Int16 Shows if this sales order is approved
- * @property $ApprovalStatusDescription String Description of ApprovalStatus
- * @property $Approved DateTime Approval datetime
- * @property $Approver Guid User who approved the sales order
- * @property $ApproverFullName String Name of approver
- * @property $Created DateTime Creation date
- * @property $Creator Guid User ID of creator
- * @property $CreatorFullName String Name of creator
- * @property $Currency String Currency code
- * @property $DeliverTo Guid Reference to delivery customer
- * @property $DeliverToContactPerson Guid Reference to contact person of delivery customer
- * @property $DeliverToContactPersonFullName String Name of contact person of delivery customer
- * @property $DeliverToName String Name of delivery customer
- * @property $DeliveryAddress Guid Delivery address
- * @property $DeliveryDate DateTime Delivery date
- * @property $DeliveryStatus Int16 Shipping status
- * @property $DeliveryStatusDescription String Description of DeliveryStatus
- * @property $Description String Description
- * @property $Division Int32 Division code
- * @property $Document Guid Document that is manually linked to the sales order
- * @property $DocumentNumber Int32 Number of the document
- * @property $DocumentSubject String Subject of the document
- * @property $InvoiceStatus Int16 Invoice status
- * @property $InvoiceStatusDescription String Description of InvoiceStatus
- * @property $InvoiceTo Guid Reference to the Customer who will receive the invoice
- * @property $InvoiceToContactPerson Guid Reference to the Contact person of the customer who will receive the invoice
- * @property $InvoiceToContactPersonFullName String Name of the contact person of the customer who will receive the invoice
- * @property $InvoiceToName String Name of the customer who will receive the invoice
- * @property $Modified DateTime Last modified date
- * @property $Modifier Guid User ID of modifier
- * @property $ModifierFullName String Name of modifier
- * @property $OrderDate DateTime Order date
- * @property $OrderedBy Guid Customer who ordered the sales order
- * @property $OrderedByContactPerson Guid Contact person of the customer who ordered the sales order
- * @property $OrderedByContactPersonFullName String Name of contact person of the customer who ordered the sales order
- * @property $OrderedByName String Name of the customer who ordered the sales order
- * @property $OrderNumber Int32 Number of sales order
- * @property $PaymentCondition String The payment condition used for due date and discount calculation
- * @property $PaymentConditionDescription String Description of PaymentCondition
- * @property $PaymentReference String Payment reference for sales order
- * @property $Remarks String Extra remarks
- * @property $SalesOrderLines SalesOrderLines Collection of lines
- * @property $Salesperson Guid Sales representative
- * @property $SalespersonFullName String Name of sales representative
- * @property $ShippingMethod Guid ShippingMethod
- * @property $ShippingMethodDescription String Description of ShippingMethod
- * @property $Status Int16 The status of the sales order. 12 = Open, 20 = Partial, 21 = Complete, 45 = Cancelled.
- * @property $StatusDescription String Description of Status
- * @property $TaxSchedule Guid Tax schedule linked
- * @property $TaxScheduleCode String Code of the tax schedule
- * @property $TaxScheduleDescription String Description of the tax schedule
- * @property $WarehouseCode String Code of Warehouse
- * @property $WarehouseDescription String Description of Warehouse
- * @property $WarehouseID Guid Warehouse
- * @property $YourRef String The reference number of the customer
+ * @property Guid $OrderID Primary key
+ * @property Double $AmountDC Amount in the default currency of the company
+ * @property Double $AmountFC Amount in the currency of the transaction
+ * @property Int16 $ApprovalStatus Shows if this sales order is approved
+ * @property String $ApprovalStatusDescription Description of ApprovalStatus
+ * @property DateTime $Approved Approval datetime
+ * @property Guid $Approver User who approved the sales order
+ * @property String $ApproverFullName Name of approver
+ * @property DateTime $Created Creation date
+ * @property Guid $Creator User ID of creator
+ * @property String $CreatorFullName Name of creator
+ * @property String $Currency Currency code
+ * @property Guid $DeliverTo Reference to delivery customer
+ * @property Guid $DeliverToContactPerson Reference to contact person of delivery customer
+ * @property String $DeliverToContactPersonFullName Name of contact person of delivery customer
+ * @property String $DeliverToName Name of delivery customer
+ * @property Guid $DeliveryAddress Delivery address
+ * @property DateTime $DeliveryDate Delivery date
+ * @property Int16 $DeliveryStatus Shipping status
+ * @property String $DeliveryStatusDescription Description of DeliveryStatus
+ * @property String $Description Description
+ * @property Int32 $Division Division code
+ * @property Guid $Document Document that is manually linked to the sales order
+ * @property Int32 $DocumentNumber Number of the document
+ * @property String $DocumentSubject Subject of the document
+ * @property Int16 $InvoiceStatus Invoice status
+ * @property String $InvoiceStatusDescription Description of InvoiceStatus
+ * @property Guid $InvoiceTo Reference to the Customer who will receive the invoice
+ * @property Guid $InvoiceToContactPerson Reference to the Contact person of the customer who will receive the invoice
+ * @property String $InvoiceToContactPersonFullName Name of the contact person of the customer who will receive the invoice
+ * @property String $InvoiceToName Name of the customer who will receive the invoice
+ * @property DateTime $Modified Last modified date
+ * @property Guid $Modifier User ID of modifier
+ * @property String $ModifierFullName Name of modifier
+ * @property DateTime $OrderDate Order date
+ * @property Guid $OrderedBy Customer who ordered the sales order
+ * @property Guid $OrderedByContactPerson Contact person of the customer who ordered the sales order
+ * @property String $OrderedByContactPersonFullName Name of contact person of the customer who ordered the sales order
+ * @property String $OrderedByName Name of the customer who ordered the sales order
+ * @property Int32 $OrderNumber Number of sales order
+ * @property String $PaymentCondition The payment condition used for due date and discount calculation
+ * @property String $PaymentConditionDescription Description of PaymentCondition
+ * @property String $PaymentReference Payment reference for sales order
+ * @property String $Remarks Extra remarks
+ * @property SalesOrderLines $SalesOrderLines Collection of lines
+ * @property Guid $Salesperson Sales representative
+ * @property String $SalespersonFullName Name of sales representative
+ * @property Guid $ShippingMethod ShippingMethod
+ * @property String $ShippingMethodDescription Description of ShippingMethod
+ * @property Int16 $Status The status of the sales order. 12 = Open, 20 = Partial, 21 = Complete, 45 = Cancelled.
+ * @property String $StatusDescription Description of Status
+ * @property Guid $TaxSchedule Tax schedule linked
+ * @property String $TaxScheduleCode Code of the tax schedule
+ * @property String $TaxScheduleDescription Description of the tax schedule
+ * @property String $WarehouseCode Code of Warehouse
+ * @property String $WarehouseDescription Description of Warehouse
+ * @property Guid $WarehouseID Warehouse
+ * @property String $YourRef The reference number of the customer
  */
 class SalesOrder extends Model
 {
     use Query\Findable;
     use Persistance\Storable;
+
+    protected $primaryKey = 'OrderID';
+
+    protected $saleOrderLines = [];
 
     protected $fillable = [
         'OrderID',
@@ -131,11 +137,18 @@ class SalesOrder extends Model
         'YourRef',
     ];
 
-    public function getSalesOrderLines() {
-        if(array_key_exists('__deferred', $this->attributes['SalesOrderLines'])) {
-            $this->attributes['SalesOrderLines'] = (new SalesOrderLine($this->connection()))->filter("OrderID eq guid'{$this->OrderID}'");
+    /**
+     * @param array $array
+     */
+    public function addItem(array $array)
+    {
+        if (! isset($this->attributes['SalesOrderLines']) || $this->attributes['SalesOrderLines'] == null) {
+            $this->attributes['SalesOrderLines'] = [];
         }
-        return $this->attributes['SalesOrderLines'];
+        if (! isset($array['LineNumber'])) {
+            $array['LineNumber'] = count($this->attributes['SalesOrderLines']) + 1;
+        }
+        $this->attributes['SalesOrderLines'][] = $array;
     }
 
     protected $url = 'salesorder/SalesOrders';

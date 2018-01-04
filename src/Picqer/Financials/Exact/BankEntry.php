@@ -1,4 +1,6 @@
-<?php namespace Picqer\Financials\Exact;
+<?php
+
+namespace Picqer\Financials\Exact;
 
 /**
  * Class BankEntry
@@ -6,29 +8,33 @@
  * @package Picqer\Financials\Exact
  * @see https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=FinancialTransactionBankEntries
  *
- * @property $EntryID Guid Primary key
- * @property $BankEntryLines BankEntryLines Collection of lines
- * @property $BankStatementDocument Guid Reference to document with bank statement
- * @property $BankStatementDocumentNumber Int32 Document number of document with bank statement
- * @property $BankStatementDocumentSubject String Subject of document with bank statement
- * @property $ClosingBalanceFC Double Closing balance in the currency of the transaction
- * @property $Created DateTime Creation date
- * @property $Currency String Currency code
- * @property $Division Int32 Division code
- * @property $EntryNumber Int32 Entry number
- * @property $FinancialPeriod Int16 Fiancial period
- * @property $FinancialYear Int16 Fiancial year
- * @property $JournalCode String Code of Journal
- * @property $JournalDescription String Description of Journal
- * @property $Modified DateTime Last modified date
- * @property $OpeningBalanceFC Double Opening balance in the currency of the transaction
- * @property $Status Int16 Status: 5 = Rejected, 20 = Open, 50 = Processed
- * @property $StatusDescription String Description of Status
+ * @property Guid $EntryID Primary key
+ * @property BankEntryLines $BankEntryLines Collection of lines
+ * @property Guid $BankStatementDocument Reference to document with bank statement
+ * @property Int32 $BankStatementDocumentNumber Document number of document with bank statement
+ * @property String $BankStatementDocumentSubject Subject of document with bank statement
+ * @property Double $ClosingBalanceFC Closing balance in the currency of the transaction
+ * @property DateTime $Created Creation date
+ * @property String $Currency Currency code
+ * @property Int32 $Division Division code
+ * @property Int32 $EntryNumber Entry number
+ * @property Int16 $FinancialPeriod Financial period
+ * @property Int16 $FinancialYear Financial year
+ * @property String $JournalCode Code of Journal
+ * @property String $JournalDescription Description of Journal
+ * @property DateTime $Modified Last modified date
+ * @property Double $OpeningBalanceFC Opening balance in the currency of the transaction
+ * @property Int16 $Status Status: 5 = Rejected, 20 = Open, 50 = Processed
+ * @property String $StatusDescription Description of Status
  */
 class BankEntry extends Model
 {
     use Query\Findable;
     use Persistance\Storable;
+
+    protected $primaryKey = 'EntryID';
+
+    protected $bankEntryLines = [];
 
     protected $fillable = [
         'EntryID',
@@ -50,6 +56,14 @@ class BankEntry extends Model
         'Status',
         'StatusDescription',
     ];
-    protected $url = 'FinancialTransaction/BankEntries';
 
+    public function addItem(array $array)
+    {
+        if (! isset($this->attributes['BankEntryLines']) || $this->attributes['BankEntryLines'] == null) {
+            $this->attributes['BankEntryLines'] = [];
+        }
+        $this->attributes['BankEntryLines'][] = $array;
+    }
+
+    protected $url = 'financialtransaction/BankEntries';
 }

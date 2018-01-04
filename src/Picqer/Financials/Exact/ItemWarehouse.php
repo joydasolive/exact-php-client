@@ -1,4 +1,6 @@
-<?php namespace Picqer\Financials\Exact;
+<?php
+
+namespace Picqer\Financials\Exact;
 
 /**
  * Class ItemWarehouse
@@ -6,41 +8,39 @@
  * @package Picqer\Financials\Exact
  * @see https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=InventoryItemWarehouses
  *
- * @property $ID Guid Primary key
- * @property $Created DateTime Creation date
- * @property $Creator Guid User ID of creator
- * @property $CreatorFullName String Name of creator
- * @property $CurrentStock Double Quantity that is currently on stock, sales/purchase orders excluded
- * @property $DefaultStorageLocation Guid This is a default storage location
- * @property $DefaultStorageLocationCode String Default storage location's code
- * @property $DefaultStorageLocationDescription String Default storage location's description
- * @property $Division Int32 Division code
- * @property $Item Guid Item ID
- * @property $ItemCode String Code of item
- * @property $ItemDescription String Description of item
- * @property $ItemIsFractionAllowedItem Boolean Indicates if fractions (for example 0.35) are allowed for quantities of this item
- * @property $ItemUnit String The standard unit code of this item
- * @property $ItemUnitDescription String Description of item's unit
- * @property $MaximumStock Double Maximum number of stock could enter warehouse
- * @property $Modified DateTime Last modified date
- * @property $Modifier Guid User ID of modifier
- * @property $ModifierFullName String Name of modifier
- * @property $PlannedStockIn Double The quantity still open to be received based on i.e. purchase orders and assembly orders.
- * @property $PlannedStockOut Double The quantity still open to be delivered based on i.e. sales orders and assembly orders.
- * @property $PlanningDetailsUrl String URL of the stock planning details of this record
- * @property $ProjectedStock Double The quantity of stock projected given all planned future stock changes
- * @property $ReorderPoint Double Reorder point when stock depletes
- * @property $ReservedStock Double The quantity in a back to back order process which is already received from the purchase order, but not yet delivered for the sales order.
- * @property $SafetyStock Double Safety stock
- * @property $StorageLocationUrl String URL pointing to details of which storage locations this ItemWarehouse's stock is located
- * @property $Warehouse Guid Warehouse ID
- * @property $WarehouseCode String Code of warehouse
- * @property $WarehouseDescription String Description of warehouse
+ * @property Guid $ID Primary key
+ * @property DateTime $Created Creation date
+ * @property Guid $Creator User ID of creator
+ * @property String $CreatorFullName Name of creator
+ * @property Double $CurrentStock Quantity that is currently on stock, sales/purchase orders excluded
+ * @property Guid $DefaultStorageLocation This is a default storage location
+ * @property String $DefaultStorageLocationCode Default storage location's code
+ * @property String $DefaultStorageLocationDescription Default storage location's description
+ * @property Int32 $Division Division code
+ * @property Guid $item Item ID
+ * @property String $ItemCode Code of item
+ * @property String $ItemDescription Description of item
+ * @property Boolean $ItemIsFractionAllowedItem Indicates if fractions (for example 0.35) are allowed for quantities of this item
+ * @property String $ItemUnit The standard unit code of this item
+ * @property String $ItemUnitDescription Description of item's unit
+ * @property Double $MaximumStock Maximum number of stock could enter warehouse
+ * @property DateTime $Modified Last modified date
+ * @property Guid $Modifier User ID of modifier
+ * @property String $ModifierFullName Name of modifier
+ * @property Double $PlannedStockIn The quantity still open to be received based on i.e. purchase orders and assembly orders.
+ * @property Double $PlannedStockOut The quantity still open to be delivered based on i.e. sales orders and assembly orders.
+ * @property String $PlanningDetailsUrl URL of the stock planning details of this record
+ * @property Double $ProjectedStock The quantity of stock projected given all planned future stock changes
+ * @property Double $ReorderPoint Reorder point when stock depletes
+ * @property Double $ReservedStock The quantity in a back to back order process which is already received from the purchase order, but not yet delivered for the sales order.
+ * @property Double $SafetyStock Safety stock
+ * @property String $StorageLocationUrl URL pointing to details of which storage locations this ItemWarehouse's stock is located
+ * @property Guid $Warehouse Warehouse ID
+ * @property String $WarehouseCode Code of warehouse
+ * @property String $WarehouseDescription Description of warehouse
  */
-
 class ItemWarehouse extends Model
 {
-
     use Query\Findable;
     use Persistance\Storable;
 

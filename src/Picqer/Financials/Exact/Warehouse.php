@@ -1,25 +1,29 @@
-<?php namespace Picqer\Financials\Exact;
+<?php
+
+namespace Picqer\Financials\Exact;
 
 /**
  * Class Warehouse
- *
  * @package Picqer\Financials\Exact
  * @see https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=InventoryWarehouses
  *
- * @property $ID Guid Primary key
- * @property $Code String Code of the warehouse
- * @property $Created DateTime Creation date
- * @property $Creator Guid User ID of creator
- * @property $CreatorFullName String Name of creator
- * @property $Description String The description of the warehouse
- * @property $Division Int32 Division code
- * @property $EMail String Email address
- * @property $Main Byte Indicates if this is the main warehouse. There's always exactly one main warehouse per administration
- * @property $ManagerUser Guid User reponsible for the warehouse
- * @property $Modified DateTime Last modified date
- * @property $Modifier Guid User ID of modifier
- * @property $ModifierFullName String Name of modifier
- * @property $UseStorageLocations Byte Indicates if this warehouse is using storage locations. The storage locations will not be removed when when this is deactivated
+ * @property Guid $ID Primary key
+ * @property String $Code Code of the warehouse
+ * @property DateTime $Created Creation date
+ * @property Guid $Creator User ID of creator
+ * @property String $CreatorFullName Name of creator
+ * @property Guid $DefaultStorageLocation The default storage location of this warehouse. Warehouses can have a default storage location in packages Manufacturing Premium or Wholesale Premium
+ * @property String $DefaultStorageLocationCode Default storage location's code
+ * @property String $DefaultStorageLocationDescription Default storage location's description
+ * @property String $Description The description of the warehouse
+ * @property Int32 $Division Division code
+ * @property String $EMail Email address
+ * @property Byte $Main Indicates if this is the main warehouse. There's always exactly one main warehouse per administration
+ * @property Guid $ManagerUser User reponsible for the warehouse
+ * @property DateTime $Modified Last modified date
+ * @property Guid $Modifier User ID of modifier
+ * @property String $ModifierFullName Name of modifier
+ * @property Byte $UseStorageLocations Indicates if this warehouse is using storage locations. The storage locations will not be removed when when this is deactivated
  */
 class Warehouse extends Model
 {
@@ -32,6 +36,9 @@ class Warehouse extends Model
         'Created',
         'Creator',
         'CreatorFullName',
+        'DefaultStorageLocation',
+        'DefaultStorageLocationCode',
+        'DefaultStorageLocationDescription',
         'Description',
         'Division',
         'EMail',
@@ -42,6 +49,7 @@ class Warehouse extends Model
         'ModifierFullName',
         'UseStorageLocations',
     ];
+
     protected $url = 'inventory/Warehouses';
 
 }
